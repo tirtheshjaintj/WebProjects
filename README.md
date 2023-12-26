@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Web Development Projects</title>
-</head>
 <body>
-
   <section id="projects">
     <h2 style="color: #004085;">Projects</h2>
     <ul style="list-style-type: none; padding: 0; margin-left: 1em;">
