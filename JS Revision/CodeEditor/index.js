@@ -1,5 +1,6 @@
 const doc=document;
 
+
 var editor1 = CodeMirror.fromTextArea(document.getElementById('htmlcode'), {
     lineNumbers: true,
     mode: 'javascript',
@@ -74,7 +75,19 @@ i=0;
     }
 
 }
-window.onkeyup=(e)=>{
+window.onkeydown=()=>{
+    showoutput();
+    console.clear();
+};
+window.onkeyup=()=>{
+    showoutput();
+    console.clear();
+};
+window.onscroll=()=>{
+    showoutput();
+    console.clear();
+};
+window.onclick=()=>{
     showoutput();
     console.clear();
 };
@@ -118,6 +131,24 @@ function showcss(){
        l=0;
     }
 }
+// Add the event listener
+document.addEventListener("keydown", (event) => {
+    if (event.keyCode == 83 && (navigator.platform.match("Mac") ? event.metaKey : event.ctrlKey)) {
+      event.preventDefault();
+      doSomethingElse();
+    }
+  }, false);
+  
+  // Do something other than the default action
+  const doSomethingElse = () => {
+    console.log('Prevented the default event for the Ctrl+S key combination');
+    console.log('You can now do something else with the key combo.');
+  }
+
+  if(window.innerWidth<700){
+    showjs();
+    showcss();
+    }
 
 
 
