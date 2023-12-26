@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TJ Task Saver</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+    <style>
+        *{
+            color:white;
+        }
+        h2{
+            text-align: center;
+        }
+        body{
+            background-color: rgb(1 52 55)!important;
+        }
+        tr,th{
+          max-width: 150px;
+          border:0.1px rgba(255, 255, 255, 0.4) solid;
+        }
+        td{
+          border:0.1px rgba(255, 255, 255, 0.4) solid;
+          border-bottom: none;
+        }
+        .no{
+          word-break: break-all;
+        }
+        button{
+          margin:2px;
+          align-self: center;
+          
+        }
+      
+        @media (max-width: 768px) {
+          .yes{
+            display: flex;
+            flex-direction: column;
+            justify-content:center;
+            align-items: center;
+          }
+          
+        }
+        
+      </style>
+  <style>
+        .glitter{
+          color: #fff;
+          background: #262626;
+          position: relative;
+        }
+      
+        .glitter::after,
+        .glitter::before {
+          content: "";
+          width: calc(100% + 4px);
+          height: calc(100% + 4px);
+          background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000);
+          background-size: 400%;
+          position: absolute;
+          top: -2px;
+          border-radius: 5px;
+          left: -2px;
+          z-index: -1;
+          animation: animated-shadow 10s linear infinite alternate;
+        }
+      
+        .glitter::after{
+          filter: blur(30px);
+        }
+      
+        @keyframes animated-shadow {
+          0% {
+            background-position: 0 0;
+          }
+      
+          50% {
+            background-position: 100% 0;
+          }
+      
+          100% {
+            background-position: 0 0;
+          }
+        }
+
+    </style>
+</head>
+<body >
+    <nav class="navbar bg-dark border-bottom border-body navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><b>TJ Task Saver</b></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           
+            
+          </div>
+        </div>
+      </nav>
+
+      <br>
+      <div class="container">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Add Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Add Title Here">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" placeholder="Add Description Here" class="form-label">Add description</label>
+            <textarea class="form-control" id="description" rows="3"></textarea>
+          </div>
+         <button class="glitter btn btn-outline-light" onclick="save()">Save Task</button>
+         &nbsp;
+         &nbsp;
+         &nbsp;
+         <button class="glitter btn btn-outline-light" onclick="clearall()">Clear All Tasks</button>
+      </div>
+<div class="container">
+  <br> <br>
+    <h2>My Tasks</h2>
+    <br>
+    <table class="glitter table table-dark">
+        <thead class="thead-dark"">
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="tablebody">
+
+        </tbody>
+       
+      </table>
+</div>
+      
+<script src="index.js"></script>
+      
+
+</body>
+</html>
