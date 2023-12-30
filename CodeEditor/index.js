@@ -1,6 +1,4 @@
 const doc=document;
-
-
 var editor1 = CodeMirror.fromTextArea(document.getElementById('htmlcode'), {
     lineNumbers: true,
     mode: 'javascript',
@@ -54,7 +52,7 @@ if(localStorage.getItem("htmlcode")!=null){
     editor3.setValue(localStorage.getItem("jscode"));
 }
 
-    let output=doc.getElementById("output");
+let output=doc.getElementById("output");
     
 
 function showoutput(){
@@ -73,6 +71,8 @@ function showoutput(){
     else{
 i=0;
     }
+
+
 
 }
 window.onkeydown=()=>{
@@ -94,42 +94,15 @@ window.onclick=()=>{
 
 showoutput();
 
-let j=1;
-let k=1;
-let l=1;
 function showhtml(){
-    
-    if(j==0){
-        doc.getElementById("htmlbox").style.display="block"
-        j=1;
-    }
-    else{
-        doc.getElementById("htmlbox").style.display="none"
-       j=0;
-    }
-   
-
+        $("#htmlbox").slideToggle("slow");
 }
 function showjs(){
-    if(k==0){
-        doc.getElementById("jsbox").style.display="block"
-        k=1;
-    }
-    else{
-        doc.getElementById("jsbox").style.display="none"
-       k=0;
-    }
+    $("#jsbox").slideToggle("slow");
 }
 
 function showcss(){
-    if(l==0){
-        doc.getElementById("cssbox").style.display="block"
-        l=1;
-    }
-    else{
-        doc.getElementById("cssbox").style.display="none"
-       l=0;
-    }
+    $("#cssbox").slideToggle("slow");
 }
 // Add the event listener
 document.addEventListener("keydown", (event) => {
@@ -145,10 +118,46 @@ document.addEventListener("keydown", (event) => {
     console.log('You can now do something else with the key combo.');
   }
 
+doc.getElementById("reset").addEventListener("click",()=>{
+
+if(confirm("Are you sure you want to reset?")){
+localStorage.clear();
+editor1.setValue(`<div id="center"> 
+<h1 id="owner">Hope You Like My Live Code Editor  (Tirthesh Jain)</h1>
+</div>`);
+editor2.setValue(`#center{
+    display:flex;
+    justify-content:center;
+    user-select:none;
+}
+h1{
+    color:white;
+    background:black;
+    font-size:20px;
+    padding:10px;
+    text-align:center;
+    transition:all 3s;
+    border-radius:20px;
+    margin:10px;
+    box-shadow:2px 2px 10px black;
+}
+h1:hover{
+   transform:scale(1.5);
+}
+`);
+editor3.setValue(`document.getElementById("owner").onclick=()=>{alert(owner.innerText)};`);
+}
+else{
+
+}
+});
+
+
   if(window.innerWidth<700){
     showjs();
     showcss();
     }
+
 
 
 

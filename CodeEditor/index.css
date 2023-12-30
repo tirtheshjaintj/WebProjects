@@ -4,6 +4,17 @@ body{
 width:100%;
 height: 100%;
   }
+
+  #reset{
+    position:fixed;
+    left:20px;
+    bottom: 40px;
+    background:#292015;
+    padding:10px;
+    border-radius: 50%;
+    z-index:100;
+    box-shadow: 0 0 20px white;
+  }
   
 div label{
     font-size: larger;
@@ -21,7 +32,7 @@ label{
     flex-direction: column;
     justify-content: space-between;
     width:100%;
-    height:100% ;
+    height:100%;
 }
 
 #codebox div{
@@ -224,6 +235,15 @@ width:100%;
 
 
 @media(max-width:768px){
+  #reset{
+    bottom:0;
+    left:10px;
+    padding:5px;
+    border-radius: 5px;
+  }
+  #reset i{
+    padding:0;
+  }
   .container{
     padding:10px;
   }

@@ -12,18 +12,13 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/abbott.min.css"></link>
 	<script src="http://esironal.github.io/cmtouch/mode/htmlmixed/htmlmixed.js"></script>
 	<script src="http://esironal.github.io/cmtouch/addon/selection/active-line.js"></script>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link rel="stylesheet" href="index.css">
-
+<link rel="stylesheet" href="index.css">
 <link rel="shortcut icon" href="https://tjcode.netlify.app/Best-Code-and-Text-Editors.png" type="image/x-icon">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <meta property="og:image" content="https://tjcode.netlify.app/Best-Code-and-Text-Editors.png" />
 </head>
 <body>
-
-
     <div class="bigbox">
         <div id="codebox" >
     <div>
@@ -32,7 +27,9 @@
                     <center> <label  class="label" class="form-label" onclick="showhtml()">HTML</label></center> 
                     <div id="htmlbox">
 
-                    <textarea class=" form-control code" id="htmlcode" name="code" onchange="showoutput()" spellcheck="false" rows="10"><h1 id="owner">Tirthesh Jain Code Editor</h1></textarea>
+                    <textarea class=" form-control code" id="htmlcode" name="code" onchange="showoutput()" spellcheck="false" rows="10"><div id="center">
+<h1 id="owner">Hope You Like My Live Code Editor (Tirthesh Jain)</h1>
+</div></textarea>
                 </div>  
                 </div>
 
@@ -41,13 +38,26 @@
         <div class="mb-3">
             <center> <label  class="label" class="form-label" onclick="showcss()">CSS</label></center> 
             <div id="cssbox">
-            <textarea class=" form-control code" id="csscode" oninput="showoutput()" rows="10" spellcheck="false">h1{
-    color:red;
+            <textarea class=" form-control code" id="csscode" oninput="showoutput()" rows="10" spellcheck="false">#center{
+    display:flex;
+    justify-content:center;
+    user-select:none;
+}
+h1{
+    color:white;
     background:black;
     font-size:20px;
     padding:10px;
     text-align:center;
-}</textarea>
+    transition:all 3s;
+    border-radius:20px;
+    margin:10px;
+    box-shadow:2px 2px 10px black;
+}
+h1:hover{
+    transform:scale(1.5);
+}
+            </textarea>
 </div>
           </div>
     </div>
@@ -78,6 +88,7 @@
 
 
 </body>
+<div id="reset" title="Reset"><i class="fa fa-refresh" style="font-size:25px"></i></div>
 <script src="index.js"></script>
 
 </html>

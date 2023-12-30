@@ -2,9 +2,9 @@
   <section id="projects">
     <h2 style="color: #004085;">Projects</h2>
     <ul style="list-style-type: none; padding: 0; margin-left: 1em;">
-<h1><li style="margin-bottom: 0.5em;"><a href="https://tjcode.netlify.app/">Project 1 🔗: TJ Live Code Editor</li></a></h1>
-<h1><li style="margin-bottom: 0.5em;"><a href="https://tirtheshjain.netlify.app/">Project 2 🔗: Tirthesh Jain Portfolio</li></a></h1>
-<h1><li style="margin-bottom: 0.5em;"><a href="https://tjtodo.netlify.app/">Project 3 🔗: TJ ToDo App</li></a></h1>
+<h2><li style="margin-bottom: 0.5em;"><a href="https://tjcode.netlify.app/">Project 1 🔗: TJ Live Code Editor</li></a></h2>
+<h2><li style="margin-bottom: 0.5em;"><a href="https://tirtheshjain.netlify.app/">Project 2 🔗: Tirthesh Jain Portfolio</li></a></h2>
+<h2><li style="margin-bottom: 0.5em;"><a href="https://tjtodo.netlify.app/">Project 3 🔗: TJ ToDo App</li></a></h2>
     </ul>
   </section>
 
