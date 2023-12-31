@@ -3,7 +3,7 @@ const doc=document;
 var button=doc.getElementById("click");
 
 
-let json={name: "click",legth:1};
+let json={name: "click",length:1};
 
 let jso=JSON.stringify(json);
 

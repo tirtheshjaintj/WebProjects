@@ -1,3 +1,4 @@
+"use strict";
 const doc=document;
 var editor1 = CodeMirror.fromTextArea(document.getElementById('htmlcode'), {
     lineNumbers: true,
