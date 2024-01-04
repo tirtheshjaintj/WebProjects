@@ -8,6 +8,7 @@ let page=1;
 let access="8qn1dVr-dUm-5g8j-SD2TxBK4CZ2i2Yl9el9jAF3QTs";
 
 async function searchImage(){
+
 keyword=image.value;
 const url=`https://api.unsplash.com/search/photos
 ?page=${page}&query=${keyword}&client_id=${access}&per_page=12`;
