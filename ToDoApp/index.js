@@ -44,7 +44,7 @@ tasksArray.forEach((element,index) => {
         <td scope="col" class="no">${index+1}</td>
             <td scope="col" class="no">${element[0]}</td>
             <td scope="col" class="no">${element[1]}</td>
-          <td scope="col" class="yes"><button type="button" onclick="deleted(${index})" class="glitter btn btn-outline-light">Delete</button><button type="button" onclick="edit(${index})" class="glitter btn btn-outline-light">Edit</button></td>
+          <td scope="col" class="yes"><button type="button" onclick="deleted(${index})" class="glitter btn btn-outline-light">Delete</button></td>
           </tr>
           `;
 });

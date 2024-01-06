@@ -1,5 +1,6 @@
 :root {
     --radius: 25px;
+
   }
 body{
     overflow-x: hidden;
@@ -22,13 +23,18 @@ body{
 }
 h1{
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px;
     color:white;
     font-family: 'Bungee Spice';
     font-size: 90px;
     margin-bottom: 20px;
 }
-
+h2{
+    font-family: 'Bungee Spice';
+    animation:show 0.5s linear;
+    text-align: center;
+    font-size: xx-large;
+}
 button{
     font-family: 'Bungee Spice';
     font-size:x-large;
@@ -110,13 +116,13 @@ align-items: center;
     }
  
     h1{
-        font-size: 50px;
+        font-size: 53px;
         margin-top: 5px;
     }
     input[type="text"]{
 width: auto;
 font-size: 16px;
-min-width: 200px;
+min-width: 250px;
     }
     #results a{
         width:80%;
