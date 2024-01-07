@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM Complete Manipulation</title>
+<style>
+#parent div:nth-child(even){
+    padding:20px;
+    margin:10px;
+    background: red;    
+}
+#parent div:nth-child(odd){
+    padding:20px;
+    margin:10px;
+    background: green;
+    color:white;
+}
+#parent,li{
+    display:grid;
+    grid-template-columns: auto auto auto;
+    text-align: center;
+    font-size: xx-large;
+}
+.black{
+    background:black;
+}
+
+
+</style>
+</head>
+<body>
+<div id="parent" class="parent" data-name="Tirthesh Jain"><!-- Hello -->
+    <div class="child">1</div><div class="child">2</div><div class="child">3</div><div class="child">4</div>
+<div class="child child5">5</div>
+<div class="child child6">6</div>
+<div class="child">7</div>
+<div class="child">8</div>
+<div class="child">9</div>
+<div class="child">10</div>
+</div>
+
+<div id="parent2"></div>      
+<script src="BrowserEvents.js"></script>
+<!-- <script src="DOM.js"></script>     -->
+</body>
+</html>

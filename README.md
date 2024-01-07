@@ -2,10 +2,16 @@
   <section id="projects">
     <h2 style="color: #004085;">Projects</h2>
     <ul style="list-style-type: none; padding: 0; margin-left: 1em;">
-<h2><li style="margin-bottom: 0.5em;"><a href="https://tjcode.netlify.app/">Project 1 🔗: TJ Live Code Editor</li></a></h2>
-<h2><li style="margin-bottom: 0.5em;"><a href="https://tirtheshjain.netlify.app/">Project 2 🔗: Tirthesh Jain Portfolio</li></a></h2>
-<h2><li style="margin-bottom: 0.5em;"><a href="https://tjtodo.netlify.app/">Project 3 🔗: TJ ToDo App</li></a></h2>
-<h2><li style="margin-bottom: 0.5em;"><a href="https://tjimages.netlify.app/">Project 4 🔗: TJ Images</li></a></h2>
+<h2><li style="margin-bottom: 0.5em;">
+<a href="https://tjcode.netlify.app/">Project 1 🔗: TJ Live Code Editor App</li></a></h2>
+<h2><li style="margin-bottom: 0.5em;">
+<a href="https://tirtheshjain.netlify.app/">Project 2 🔗: Tirthesh Jain Portfolio</li></a></h2>
+<h2><li style="margin-bottom: 0.5em;">
+<a href="https://tjtodo.netlify.app/">Project 3 🔗: TJ ToDo App</li></a></h2>
+<h2><li style="margin-bottom: 0.5em;">
+<a href="https://tjimages.netlify.app/">Project 4 🔗: TJ Images App</li></a></h2>
+<h2><li style="margin-bottom: 0.5em;">
+<a href="https://tjweather.netlify.app/">Project 5 🔗: TJ Weather App</li></a></h2>
     </ul>
   </section>
 
