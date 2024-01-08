@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tirthesh Jain Calculator</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="shortcut icon" href="475497.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="calculator glitter">
+        <form>
+          <div class="display">
+            <input type="text" name="display" value="0" id="display" />
+          </div>
+          <div>
+            <input
+              type="button"
+              onclick="display.value='0'"
+              value="AC"
+              class="oper"
+            />
+            <input
+              type="button"
+              onclick="display.value=display.value.toString().slice(0,-1);"
+              value="DE"
+              class="oper"
+            />
+            <input type="button" onclick="display.value+='.'" value="." />
+            <input type="button" onclick="display.value+='/'" value="/" />
+          </div>
+          <div>
+            <input type="button" onclick="display.value+='7'" value="7" />
+            <input type="button" onclick="display.value+='8'" value="8" />
+            <input type="button" onclick="display.value+='9'" value="9" />
+            <input type="button" onclick="display.value+='*'" value="*" />
+          </div>
+          <div>
+            <input type="button" onclick="display.value+='4'" value="4" />
+            <input type="button" onclick="display.value+='5'" value="5" />
+            <input type="button" onclick="display.value+='6'" value="6" />
+            <input type="button" onclick="display.value+='-'" value="-" />
+          </div>
+          <div>
+            <input type="button" onclick="display.value+='1'" value="1" />
+            <input type="button" onclick="display.value+='2'" value="2" />
+            <input type="button" onclick="display.value+='3'" value="3" />
+            <input type="button" onclick="display.value+='+'" value="+" />
+          </div>
+          <div>
+            <input type="button" onclick="display.value+='00'" value="00" />
+            <input type="button" onclick="display.value+='0'" value="0" />
+            <input
+              type="button"
+              onclick="display.value=eval(display.value)"
+              class="equal oper"
+              value="="
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
