@@ -19,8 +19,11 @@ async function getWeather(place) {
             doc.querySelector('#temperature').innerText = '-- °C';
             doc.querySelector('#humidity').innerText = '-- %';
             doc.querySelector('#wind').innerText = '-- km/hr';
-            doc.querySelector('#lat').innerText = '--° ' + '--°';
-            console.clear();
+            // doc.querySelector('#lat').innerText = '--° ' + '--°';
+            doc.querySelector("#desc").innerText = '--';
+            doc.getElementById("sunrise").innerText = '--';
+            doc.getElementById("sunset").innerText = '--';
+            // console.clear();
         }
         else {
             var data = await response.json();
@@ -29,8 +32,20 @@ async function getWeather(place) {
             doc.querySelector('#temperature').innerText = Math.round(data.main.temp) + '°C';
             doc.querySelector('#humidity').innerText = data.main.humidity + '%';
             doc.querySelector('#wind').innerText = data.wind.speed + ' km/hr';
-            doc.querySelector('#lat').innerText = data.coord.lat + '° / ' + data.coord.lon + '°';
+            // doc.querySelector('#lat').innerText = data.coord.lat + '° / ' + data.coord.lon + '°';
             doc.querySelector("#desc").innerText = data.weather[0].description;
+            let unix_timestamp = data.sys.sunrise;
+            let date = new Date(unix_timestamp * 1000);
+            let formattedTime = date.getHours()+":"+date.getMinutes();
+            console.log(formattedTime);
+            unix_timestamp = data.sys.sunset;
+            date = new Date(unix_timestamp * 1000);
+            let formattedTime2 = date.getHours()+":"+date.getMinutes();
+            console.log(formattedTime2);
+            doc.getElementById("sunrise").innerText = formattedTime;
+            doc.getElementById("sunset").innerText = formattedTime2;
+
+
             if (data.weather[0].main == "Clouds") {
                 weathericon.src = 'images/clouds.png';
             }

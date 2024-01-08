@@ -12,12 +12,22 @@ body{
 }
 .card{
     width:90%;
-    max-width: 600px;
+    max-width: 570px;
     background: linear-gradient(135deg, #9207bd, #df0974);
-margin:60px auto 0;
+margin:10px auto 0;
 border-radius: 20px;
 padding:40px 35px;
 text-align: center;
+}
+.center{
+  display: flex;
+  justify-content: center;
+  width:100%;
+}
+.setrise{
+  display: flex;
+  justify-content: space-around;
+  width:100%;
 }
 
 
@@ -148,6 +158,9 @@ p{
   }
  p{
     font-size: 20px;
+ }
+ .card{
+  margin:60px auto 0;
  }
   /* .details{
   flex-direction: column;
