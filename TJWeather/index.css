@@ -36,7 +36,6 @@ text-align: center;
     display:flex;
     align-items: center;
     justify-content: space-between;
-
 }
 .search input{
     border:0;
@@ -63,7 +62,6 @@ text-align: center;
     width:60px;
     height: 60px;
     cursor:pointer;
-
 }
 
 .weather h1{
@@ -105,7 +103,6 @@ p{
     margin-top: -6px;
     font-weight: bolder;
     margin:1px;
-    
 }
 
 .glitter{
@@ -148,20 +145,62 @@ p{
 
 @media (max-width:728px){
   .weather h1{
-    font-size: 60px;
+    font-size: 55px;
   }
   .weather h2{
-    font-size: 40px;
+    font-size: 35px;
   }
   .card{
-    padding:40px 20px;
+    padding:40px 15px;
   }
  p{
+    font-size: 15px;
+ }
+.setrise p,#desc{
     font-size: 20px;
  }
  .card{
-  margin:60px auto 0;
+  margin:25px auto 0;
  }
+ 
+
+.search{
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.search input{
+    border:0;
+    outline:0;
+    background:#ebfffc;
+    padding:10px 15px;
+    color:#222;
+    height:60px;
+    width:200px;
+    border-radius: 30px;
+    flex:1;
+    margin-right:10px;
+    font-size: 16px;
+    font-weight:bolder;
+}
+.search input::placeholder{
+        font-weight:lighter;
+}
+
+.search button{
+    border:0;
+    outline:0;
+    background: #ebfffc;
+    border-radius: 50%;
+    width:60px;
+    height: 60px;
+    cursor:pointer;
+}
+#weather{
+  width:150px;
+}
   /* .details{
   flex-direction: column;
 }
