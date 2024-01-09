@@ -12,6 +12,11 @@
 <a href="https://tjimages.netlify.app/">Project 4 🔗: TJ Images App</li></a></h2>
 <h2><li style="margin-bottom: 0.5em;">
 <a href="https://tjweather.netlify.app/">Project 5 🔗: TJ Weather App</li></a></h2>
+<h2><li style="margin-bottom: 0.5em;">
+<a href="https://tjmole.netlify.app/">Project 6 🔗: TJ Whack-a-Mole Game</li></a></h2>
+<h2><li style="margin-bottom: 0.5em;">
+<a href="https://tjcalc.netlify.app/">Project 7 🔗: TJ Calculator</li></a></h2>
+
     </ul>
   </section>
 
