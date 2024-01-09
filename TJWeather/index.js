@@ -78,7 +78,7 @@ search.oninput = () => {
         let suggestions = cities.filter((i) => {
             return i.toLowerCase().indexOf(search.toLowerCase()) > -1;
         });
-    console.log(suggestions);
+    // console.log(suggestions);
     let text = " ";
         for (let i of suggestions) {
             text += `<option value=${i}></option>`;
