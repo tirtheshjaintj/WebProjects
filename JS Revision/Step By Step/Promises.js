@@ -20,7 +20,7 @@ let promise2 = new Promise((resolve, reject) => {
        console.log("Promise 2 Resolved");
        resolve(true);
         //   reject(new Error("I am an error"));
-   }, 4000); 
+   }, 2000); 
 });
 
 let promise3 = new Promise((resolve, reject) => {
@@ -30,13 +30,24 @@ let promise3 = new Promise((resolve, reject) => {
     //    resolve(true);
        reject(new Error("I am an error"));
        
-   }, 4000); 
+   }, 2000); 
 });
 
+//Fulfilled Promise
 promise2.then((val) => {
-    console.log(val); 
+    console.log(val);
 });
 
-promise3.catch((val) => {
-    console.log("Some Error Occurred in Promise3 "+val); 
+//Catching Error
+promise2.catch((val) => {
+    console.log(val);
 });
+
+
+//Both Catch and Then In One 
+promise3.then((val) => {
+    console.log("Some Error Occurred in Promise3 "+val); 
+}, (error) => {
+    console.log("Error Catched"+error);
+});
+

@@ -19,11 +19,12 @@ font-family: Salsa;
     padding:20px;
     border-radius: 10px;
 }
+
 .calculator input ,.calculator button{
     border:0;
     outline:0;
-    width:60px;
-    height:60px;
+    width:70px;
+    height:70px;
     border-radius: 10px;
     box-shadow: -8px -8px 15px rgba(255,255,255,0.1),5px 5px 15px rgba(0,0,0,0.2);
     background: transparent;
@@ -49,40 +50,21 @@ input.equal{
 form input.oper{
     color:#33ffd8;
 }
-.glitter{
-  color: #fff;
-  position: relative;
+
+@media(max-width:728px){
+.calculator input ,.calculator button{
+    border:0;
+    outline:0;
+    width:50px;
+    height:50px;
+}
+}
+@media(max-width:400px){
+.calculator input ,.calculator button{
+    border:0;
+    outline:0;
+    width:40px;
+    height:40px;
+}
 }
 
-.glitter::after,
-.glitter::before {
-  content: "";
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000);
-  background-size: 400%;
-  position: absolute;
-  top: -2px;
-  border-radius: 20px;
-  left: -2px;
-  z-index: -1;
-  animation: animated-shadow 15s linear infinite alternate;
-}
-
-.glitter::after{
-  filter: blur(30px);
-}
-
-@keyframes animated-shadow {
-  0% {
-    background-position: 0 0;
-  }
-
-  50% {
-    background-position: 100% 0;
-  }
-
-  100% {
-    background-position: 0 0;
-  }
-}
