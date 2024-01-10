@@ -34,7 +34,7 @@ function randomHole() {
 }
 
 function popup() {
-    const time = randTime(200, 800);
+    const time = randTime(200, 700);
     const hole = randomHole(holes);
     hole.classList.add('up');
     setTimeout(() => {

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TJ QR Code</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" name="qrtext" id="qrtext" value="Enter Text" placeholder="Enter Text">
+        <br><br>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data=Enter Text" id="qrcode" alt=" ">
+    </div>
+
+    <script>
+        let qrtext = document.getElementById("qrtext");
+        qrtext.oninput = () => {
+            let src = "https://api.qrserver.com/v1/create-qr-code/?data=" + qrtext.value;
+            document.getElementById("qrcode").src = src;
+
+        };
+    </script>
+</body>
+
+</html>
