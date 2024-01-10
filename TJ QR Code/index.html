@@ -4,24 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TJ QR Code</title>
+    <title>TJ QR Code Generator</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
 </head>
 
 <body>
     <div class="container">
-        <input type="text" name="qrtext" id="qrtext" value="Enter Text" placeholder="Enter Text">
-        <br><br>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?data=Enter Text" id="qrcode" alt=" ">
+        <div class="container2">
+            <label for="qrtext">TJ QR Code Generator</label>
+            <input type="text" name="qrtext" id="qrtext" placeholder="Enter your Text or URL" autofocus>
+            <br><br>
+            <div id="qrout">
+                <img id="qrcode" alt="QR Code" download>
+            </div>
+        </div>
     </div>
 
     <script>
         let qrtext = document.getElementById("qrtext");
-        qrtext.oninput = () => {
-            let src = "https://api.qrserver.com/v1/create-qr-code/?data=" + qrtext.value;
-            document.getElementById("qrcode").src = src;
+        let qrcode = document.getElementById("qrcode");
 
-        };
+        qrtext.oninput = () => {
+            let text = qrtext.value.replaceAll(' ', '');
+            if (text.length > 0) {
+                let src = "https://api.qrserver.com/v1/create-qr-code/?data=" + text;
+                fetch(src)
+                    .then((request) => {
+                        return request.blob()
+                    })
+                    .then((data) => {
+                        const imageUrl = URL.createObjectURL(data);
+                        qrcode.src = imageUrl;
+                        qrcode.style.display = "block";
+                    })
+                    .catch((error) => {
+                        qrcode.style.display = "none";
+                        console.clear();
+                    })
+            }
+            else {
+                qrcode.style.display = "none";
+            }
+        }
+
     </script>
 </body>
 

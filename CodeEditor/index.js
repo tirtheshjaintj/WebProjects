@@ -1,132 +1,141 @@
 "use strict";
-const doc=document;
+const doc = document;
 var editor1 = CodeMirror.fromTextArea(document.getElementById('htmlcode'), {
     lineNumbers: true,
     mode: 'javascript',
-    matchBrackets : true,
+    matchBrackets: true,
     showHint: true,
     lint: true,
-    autoCloseTags:true,
+    autoCloseTags: true,
     lineWrapping: true,
-	styleActiveLine: true,
-	matchBrackets: true,
+    styleActiveLine: true,
+    matchBrackets: true,
     extraKeys: {
         "Ctrl-Space": "autocomplete"
     },
     theme: 'abbott'
-}); 
+});
 
 var editor2 = CodeMirror.fromTextArea(document.getElementById('csscode'), {
     lineNumbers: true,
     mode: 'javascript',
-    matchBrackets : true,
+    matchBrackets: true,
     showHint: true,
     lint: true,
-    autoCloseTags:true,
+    autoCloseTags: true,
     lineWrapping: true,
-	styleActiveLine: true,
-	matchBrackets: true,
+    styleActiveLine: true,
+    matchBrackets: true,
     extraKeys: {
         "Ctrl-Space": "autocomplete"
     },
     theme: 'abbott'
-}); 
+});
 var editor3 = CodeMirror.fromTextArea(document.getElementById('jscode'), {
     lineNumbers: true,
     mode: 'javascript',
-    matchBrackets : true,
+    matchBrackets: true,
     showHint: true,
     lint: true,
-    autoCloseTags:true,
+    autoCloseTags: true,
     lineWrapping: true,
-	styleActiveLine: true,
-	matchBrackets: true,
+    styleActiveLine: true,
+    matchBrackets: true,
     extraKeys: {
         "Ctrl-Space": "autocomplete"
     },
     theme: 'abbott'
-}); 
+});
 
-if(localStorage.getItem("htmlcode")!=null){
+if (localStorage.getItem("htmlcode") != null) {
     editor1.setValue(localStorage.getItem("htmlcode"));
     editor2.setValue(localStorage.getItem("csscode"));
     editor3.setValue(localStorage.getItem("jscode"));
 }
 
-let output=doc.getElementById("output");
-    
+let output = doc.getElementById("output");
 
-function showoutput(){
-    localStorage.setItem("htmlcode",editor1.getValue());
-    localStorage.setItem("csscode",editor2.getValue());
-    localStorage.setItem("jscode",editor3.getValue());
-    output.innerHTML=`${localStorage.getItem("htmlcode")}`;
-    output.innerHTML+=`<style> ${localStorage.getItem("csscode")}</style>`;
+
+function showoutput() {
+    localStorage.setItem("htmlcode", editor1.getValue());
+    localStorage.setItem("csscode", editor2.getValue());
+    localStorage.setItem("jscode", editor3.getValue());
+    output.innerHTML = `${localStorage.getItem("htmlcode")}`;
+    output.innerHTML += `<style> ${localStorage.getItem("csscode")}</style>`;
     eval(localStorage.getItem("jscode"));
-    var i=0;
-    if(i==0){
-    var x = document.getElementById("snackbar");
-    x.className = "show";
-    setTimeout(function(){ x.className = x.className.replace("show", "");i=1; }, 3000);
+    var i = 0;
+    if (i == 0) {
+        var x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function () { x.className = x.className.replace("show", ""); i = 1; }, 3000);
     }
-    else{
-i=0;
+    else {
+        i = 0;
     }
 
 
 
 }
-window.onkeydown=()=>{
+
+const saver = () => {
+    if (window.innerWidth < 700) {
+        showoutput();
+        console.clear();
+    }
+}
+
+window.onkeydown = () => {
     showoutput();
     console.clear();
 };
-window.onkeyup=()=>{
+
+window.onkeyup = () => {
     showoutput();
     console.clear();
 };
-window.onscroll=()=>{
-    showoutput();
-    console.clear();
+
+window.onscroll = () => {
+    saver();
 };
-window.onclick=()=>{
-    showoutput();
-    console.clear();
+
+window.onclick = () => {
+    saver();
 };
 
 showoutput();
 
-function showhtml(){
-        $("#htmlbox").slideToggle("slow");
+function showhtml() {
+    $("#htmlbox").slideToggle("slow");
 }
-function showjs(){
+function showjs() {
     $("#jsbox").slideToggle("slow");
 }
 
-function showcss(){
+function showcss() {
     $("#cssbox").slideToggle("slow");
 }
 // Add the event listener
 document.addEventListener("keydown", (event) => {
     if (event.keyCode == 83 && (navigator.platform.match("Mac") ? event.metaKey : event.ctrlKey)) {
-      event.preventDefault();
-      doSomethingElse();
+        event.preventDefault();
+        doSomethingElse();
     }
-  }, false);
-  
-  // Do something other than the default action
-  const doSomethingElse = () => {
+}, false);
+
+// Do something other than the default action
+const doSomethingElse = () => {
     console.log('Prevented the default event for the Ctrl+S key combination');
     console.log('You can now do something else with the key combo.');
-  }
+}
 
-doc.getElementById("reset").addEventListener("click",()=>{
+doc.getElementById("reset").addEventListener("click", () => {
 
-if(confirm("Are you sure you want to reset?")){
-localStorage.clear();
-editor1.setValue(`<div id="center"> 
+    if (confirm("Are you sure you want to reset?")) {
+        localStorage.clear();
+        editor1.setValue(`<div id="center"> 
 <h1 id="owner">Hope You Like My Live Code Editor  (Tirthesh Jain)</h1>
 </div>`);
-editor2.setValue(`#center{
+        editor2.setValue(`#center{
     display:flex;
     justify-content:center;
     user-select:none;
@@ -146,18 +155,18 @@ h1:hover{
    transform:scale(1.5);
 }
 `);
-editor3.setValue(`document.getElementById("owner").onclick=()=>{alert(owner.innerText)};`);
-}
-else{
+        editor3.setValue(`document.getElementById("owner").onclick=()=>{alert(owner.innerText)};`);
+    }
+    else {
 
-}
+    }
 });
 
 
-  if(window.innerWidth<700){
+if (window.innerWidth < 700) {
     showjs();
     showcss();
-    }
+}
 
 
 

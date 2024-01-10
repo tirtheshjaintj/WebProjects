@@ -1,54 +1,86 @@
+@import url("https://fonts.googleapis.com/css?family=Salsa");
 input{
-    padding:20px;
+    padding:15px;
     font-size:20px;
+    border-radius:10px;
+    min-width:350px;
+        box-shadow: 0px 0px 3px goldenrod;
 }
 
+label{
+  font-family:Salsa;
+  font-size: xx-large;
+  margin: 10px;
+  color:white;
+  text-shadow: 0px 0px 20px goldenrod;
+
+}
+.container2{
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding:50px;
+    border-radius:10px;
+    box-shadow: 0px 0px 10px white;
+    backdrop-filter: blur(8px);
+    z-index: 10;
+}
 .container{
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width:100%;
+    background: url(back.jpg!d);
+    background-repeat: repeat;
+    background-size: cover;
+     background-attachment: fixed;
     height:100vh;
+}
+
+#qrout{
+  display:block;
+  width:250px;
+  height:250px;
+    margin-bottom:30px;
+     border-radius: 20px;
+     
+}
+
+#qrcode{
+      transition: all 0.5s;
+  display:none;
+  animation:0.3s show linear ;
+}
+
+@keyframes show{
+  from{
+    transform: scale(0);
+  }
+  to{
+    transform:scale(1);
+  }
 }
 
 body{
     background:#222;
 }
-.glitter{
-  color: #fff;
-  position: relative;
-}
 
-.glitter::after,
-.glitter::before {
-  content: "";
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000);
-  background-size: 400%;
-  position: absolute;
-  top: -2px;
+img{
+  padding:10px;
+  background:white;
   border-radius: 20px;
-  left: -2px;
-  z-index: -1;
-  animation: animated-shadow 15s linear infinite alternate;
+      border:1px black solid;
+box-shadow: 0px 0px 20px goldenrod;
 }
 
-.glitter::after{
-  filter: blur(30px);
+@media(max-width:400px){
+  input{
+    min-width:auto;
+}
+.container2{
+    padding:30px;
 }
 
-@keyframes animated-shadow {
-  0% {
-    background-position: 0 0;
-  }
-
-  50% {
-    background-position: 100% 0;
-  }
-
-  100% {
-    background-position: 0 0;
-  }
 }
