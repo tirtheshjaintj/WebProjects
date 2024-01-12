@@ -10,6 +10,7 @@ input{
     font-size:20px;
     border-radius:10px;
     min-width:350px;
+    font-weight: bolder;
         box-shadow: 0px 0px 3px goldenrod;
 }
 
@@ -89,7 +90,7 @@ button:active {
   font-size: x-large;
   }
   input{
-    min-width:auto;
+    min-width:80%;
 }
 .container2{
     padding:15px;

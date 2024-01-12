@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tirthesh Jain PhotoBooth!</title>
+    <link rel="icon" href="https://fav.farm/📸" />
+    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="og:image" content="https://tjcamera.netlify.app/ogimage.jpg">
+</head>
+
+<body>
+
+    <div class="photobooth">
+        <h1>TJ Camera</h1>
+        <canvas class="photo" id="canvas"></canvas>
+        <video class="player" id="video"></video>
+        <br>
+        <div class="controls">
+            <button onClick="takePhoto()">Take Photo</button>
+            <button onClick="play()" id="playpause">Pause</button>
+        </div>
+        <br>
+        <div class="strip"></div>
+
+
+
+    </div>
+
+    <audio class="snap" id="snap" src="./snap.mp3" hidden></audio>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>

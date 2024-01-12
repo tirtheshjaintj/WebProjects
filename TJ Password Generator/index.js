@@ -3,6 +3,8 @@ const passlength = document.getElementById("length");
 const show = document.getElementById("showlen");
 const generate = document.getElementById("generate");
 
+
+
 document.getElementById("copy").onclick = (e) => {
     navigator.clipboard.writeText(password.value);
     document.getElementById("copy").innerText = "Copied";

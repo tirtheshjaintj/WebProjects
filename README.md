@@ -16,8 +16,14 @@
 <a href="https://tjmole.netlify.app/">Project 6 🔗: TJ Whack-a-Mole Game</li></a></h2>
 <h2><li style="margin-bottom: 0.5em;">
 <a href="https://tjcalc.netlify.app/">Project 7 🔗: TJ Calculator</li></a></h2>
+<h2><li style="margin-bottom: 0.5em;">
+<a href="https://tjqr.netlify.app/">Project 8 🔗: TJ QR Code Generator</li></a></h2>
+<h2><li style="margin-bottom: 0.5em;">
+<a href="https://tjpass.netlify.app/">Project 9 🔗: TJ Password Generator</li></a></h2>
+<h2><li style="margin-bottom: 0.5em;">
+<a href="https://tjcamera.netlify.app/">Project 10 🔗: TJ PhotoBooth!</li></a></h2>
 
-    </ul>
+</ul>
   </section>
 
 

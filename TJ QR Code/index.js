@@ -13,6 +13,7 @@ qrtext.oninput = () => {
                 const imageUrl = URL.createObjectURL(data);
                 qrcode.src = imageUrl;
                 qrcode.style.display = "block";
+                qrcode.setAttribute("download", 'qrcode');
                 const sharefun = () => {
                     var file = new File([data], "picture.jpg", { type: 'image/jpeg' });
                     var filesArray = [file];
