@@ -5,7 +5,7 @@ let a = {
     }
 };
 
-console.log(a);
+
 
 let p1 = {
     run: () => {
@@ -18,7 +18,7 @@ p2 = {
 };
 
 p1.__proto__ = p2;
-
 a.__proto__ = p1;
+console.log(a);
 a.run();
 console.log(a.name2);
