@@ -1,10 +1,13 @@
 // import logo from './logo.svg';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import About from './components/About';
 import Navbar from './components/Navbar'
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+
 // let text="Lets Learn ReactJS";
 // text={
 //   name:"Tirthesh Jain",
@@ -17,7 +20,6 @@ function App() {
 
 
   const showAlert = (message, type = "success") => {
-    console.log(alerts);
     setAlert({
       msg: message,
       type: type
@@ -51,12 +53,15 @@ function App() {
   }
 
   return (
-    <>
+    <Router>
       <Navbar title="TJ Text Editor" mode={ mode } toggleMode={ toggleMode } />
-      <TextForm heading="Enter Text Here" mode={ mode } showAlert={ showAlert } />
+      <Routes>
+        <Route exact path="*" element={ <TextForm heading="Enter Text Here" mode={ mode } showAlert={ showAlert } /> }></Route>
+        <Route exact path="/about" element={ <About heading="About Us" /> }></Route>
+      </Routes>
       <Alert alert={ alerts } />
-      {/* <About heading="About Us" /> */ }
-    </>
+
+    </Router>
   );
 }
 

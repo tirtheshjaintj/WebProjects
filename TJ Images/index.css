@@ -45,8 +45,8 @@ button{
     border-bottom-left-radius: none;
     padding:8px;
     box-shadow: 0px 0px 10px goldenrod;
-
 }
+
 input[type="text"]{
     padding:5px;
     width:600px;

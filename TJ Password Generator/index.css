@@ -49,8 +49,8 @@ label{
 
 
 body{
-   background: url(back.jpg!d);
-    background-repeat: round;
+  background: url(back.jpeg);
+  background-repeat: round;
     background-size: contain;
      background-attachment: fixed;
     

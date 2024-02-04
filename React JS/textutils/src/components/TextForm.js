@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+
 export default function TextForm(props) {
 
   const handleUpper = () => {
@@ -38,12 +39,13 @@ export default function TextForm(props) {
 
   const handleClear = () => {
     setText("");
-    props.showAlert("Successfully Cleared TextBox");
+    props.showAlert("Successfully Cleared Text");
   };
 
   const handleCompress = () => {
     let newtext = text.replaceAll(" ", "").replaceAll("\n", "");
     setText(newtext);
+    props.showAlert("Successfully Compressed Text");
 
   }
 

@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css?family=Salsa|Acme|Bungee Spice");
+*{
+  margin:0;
+  padding:0;
+  word-break: break-all;
+
+}
+:root {
+  --radius: 25px;
+
+}
+
+label{
+  font-family:Salsa;
+  font-size: 50px;
+  margin: 10px;
+  color:white;
+  text-align: center;
+  text-shadow: 0px 0px 20px goldenrod;
+
+}
+.container2{
+     display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding:50px;
+    border-radius:10px;
+    box-shadow: 0px 0px 10px white;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    width:70%;
+
+}
+
+#dictout{
+  color:white;
+  font-size: x-large;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  text-align:left;
+  display: none;
+}
+
+
+.container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    height:100vh;
+    padding:50px 0;
+}
+body{
+   background: url(back.jpeg);
+    background-repeat: round;
+    background-size: contain;
+     background-attachment: fixed;
+    
+}
+
+#qrout{
+  display:block;
+  min-width:250px;
+  min-height:250px;
+    margin-bottom:30px;
+     border-radius: 20px;
+     
+}
+
+
+#qrcode{
+      transition: all 0.5s;
+  display:none;
+  animation:0.3s show linear ;
+}
+
+@keyframes show{
+  from{
+    transform: scale(0);
+  }
+  to{
+    transform:scale(1);
+  }
+}
+
+
+
+img{
+  padding:10px;
+  background:white;
+  border-radius: 20px;
+      border:1px black solid;
+box-shadow: 0px 0px 20px goldenrod;
+}
+
+
+.box2{
+  display: flex;
+  flex-direction: row;
+}
+button{
+  font-family: 'Bungee Spice';
+  font-size:x-large;
+  background-color: #231b0f;
+  border-bottom-right-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  border:0;
+  border-bottom-left-radius: none;
+  padding:8px;
+  box-shadow: 0px 0px 10px goldenrod;
+}
+
+.container{
+  padding-top: 3%;
+}
+
+input[type="text"]{
+  padding:10px;
+  min-width:600px;
+  font-size: xx-large;
+  border-bottom-left-radius:  var(--radius);
+  border-top-left-radius:  var(--radius);
+  border-bottom-right-radius: none;
+  text-align: center;
+  box-shadow: 0px 0px 10px goldenrod;
+  border:0;
+}
+
+
+
+::placeholder {
+opacity: 0.5;
+font-size: x-large;
+
+}
+
+button{
+  font-family: 'Bungee Spice';
+  font-size:x-large;
+  background-color: #231b0f;
+  border-bottom-right-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  border:0;
+  border-bottom-left-radius: none;
+  padding:8px;
+  box-shadow: 0px 0px 10px goldenrod;
+}
+li{
+	list-style: none;
+	padding-left: 0;
+  text-align: left;
+  text-shadow: 0px 0px 10px black;
+}
+
+b{
+  text-shadow: 0px 0px 2px black;
+padding:10px;
+border: 2px white solid;
+box-shadow: 0px 0px 10px goldenrod;
+border-radius: var(--radius);
+}
+
+li::before{
+  content:"👉";  
+  text-align: left;
+}
+
+ul{
+  list-style: none;
+}
+
+@media(max-width:1024px){
+  label{
+    font-size: 40px;
+  }
+  #dictout{
+    color:white;
+    font-size: 20px;
+  }
+  input[type="text"]{
+    min-width:90%;
+    font-size: x-large;
+    border-radius: var(--radius);
+  }
+
+button{
+  border-radius: var(--radius);
+  width:50%;
+  align-self: center;
+  margin-top: 10px;
+}
+  
+.container2{
+    padding:15px;
+    width:90%;
+}
+.container{
+    background-repeat: round;
+    background-size: contain;
+     background-attachment: fixed;
+}
+.box2{
+  width:100%;
+  padding-top: 20px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+}

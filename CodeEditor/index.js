@@ -95,10 +95,12 @@ window.onkeyup = () => {
 };
 
 window.onscroll = () => {
+    showoutput();
     saver();
 };
 
 window.onclick = () => {
+    showoutput();
     saver();
 };
 
