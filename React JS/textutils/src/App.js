@@ -7,18 +7,10 @@ import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-
-// let text="Lets Learn ReactJS";
-// text={
-//   name:"Tirthesh Jain",
-//   age:20
-// }
 function App() {
   const [mode, setMode] = useState('light');
-
   const [alerts, setAlert] = useState(null);
-
-
+  
   const showAlert = (message, type = "success") => {
     setAlert({
       msg: message,
