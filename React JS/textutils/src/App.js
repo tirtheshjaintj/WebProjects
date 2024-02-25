@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './App.css';
 import About from './components/About';
 import Navbar from './components/Navbar'
@@ -20,6 +20,8 @@ function App() {
       setAlert(null);
     }, 2000);
   }
+
+
 
 
   const toggleMode = () => {
@@ -44,6 +46,10 @@ function App() {
 
   }
 
+  
+
+
+
   return (
     <Router>
       <Navbar title="TJ Text Editor" mode={ mode } toggleMode={ toggleMode } />
@@ -51,10 +57,11 @@ function App() {
         <Route exact path="*" element={ <TextForm heading="Enter Text Here" mode={ mode } showAlert={ showAlert } /> }></Route>
         <Route exact path="/about" element={ <About heading="About Us" /> }></Route>
       </Routes>
+    
       <Alert alert={ alerts } />
-
     </Router>
   );
 }
+
 
 export default App;

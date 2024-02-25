@@ -6,31 +6,31 @@ export default function TextForm(props) {
   const handleUpper = () => {
     let newtext = text.toUpperCase();
     setText(newtext);
-    props.showAlert("Successfully Converted To UpperCase");
+    props.showAlert("Converted To UpperCase");
   };
   const handleLower = () => {
     let newtext = text.toLowerCase();
     setText(newtext);
-    props.showAlert("Successfully Converted To LowerCase");
+    props.showAlert("Converted To LowerCase");
   };
   const handleSpaces = () => {
     let newtext = text.replaceAll(" ", "");
     setText(newtext);
-    props.showAlert("Successfully Removed Spaces");
+    props.showAlert("Removed Spaces");
   };
   const handleLines = () => {
     let newtext = text.replaceAll("\n", "");
     setText(newtext);
-    props.showAlert("Successfully Removed Lines");
+    props.showAlert("Removed Lines");
   };
   const handleExtraSpaces = () => {
     let newtext = text.split(/[ ]+/);
     setText(newtext.join(" "));
-    props.showAlert("Successfully Removed Extra Spaces");
+    props.showAlert("Removed Extra Spaces");
   };
   const handleCopy = () => {
     navigator.clipboard.writeText(text);
-    props.showAlert("Successfully Copied Text");
+    props.showAlert("Copied Text");
   };
 
   const handleOnChange = (event) => {
@@ -39,18 +39,36 @@ export default function TextForm(props) {
 
   const handleClear = () => {
     setText("");
-    props.showAlert("Successfully Cleared Text");
+    props.showAlert("Cleared Text");
   };
 
   const handleCompress = () => {
     let newtext = text.replaceAll(" ", "").replaceAll("\n", "");
     setText(newtext);
-    props.showAlert("Successfully Compressed Text");
-
+    props.showAlert("Compressed Text");
   }
 
   const [text, setText] = useState("");
-
+  let deferredPrompt=null;
+    window.addEventListener('beforeinstallprompt', (e) => {
+        deferredPrompt = e;
+    });
+  
+  async function install(){
+        try{
+        if (deferredPrompt !== null) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                deferredPrompt = null;
+                props.showAlert("Installing App");
+            }
+        }
+      }
+      catch(err){
+        console.log(err);
+      }
+    };
 
   return (
     <>
@@ -66,6 +84,7 @@ export default function TextForm(props) {
         <button disabled={ text.replaceAll("\n", " ").replaceAll(" ", "").length === 0 } type="button" onClick={ handleCompress } className="btn btn-success m-2">Compress Text</button>
         <button disabled={ text.replaceAll("\n", " ").replaceAll(" ", "").length === 0 } type="button" onClick={ handleCopy } className="btn btn-primary m-2">Copy Text</button>
         <button disabled={ text.replaceAll("\n", " ").replaceAll(" ", "").length === 0 } type="button" onClick={ handleClear } className="btn btn-success m-2">Clear Text</button>
+        <button id="installApp" onClick={install} className="btn btn-warning m-2">Install As App</button>
 
       </div>
       <div className={ `container text-${props.mode === "light" ? "dark" : "light"}` }>

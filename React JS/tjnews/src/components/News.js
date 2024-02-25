@@ -33,7 +33,6 @@ export default function News(props) {
   async function fetchMoreData () {
     props.setProgress(10);
   setLoading(true);
-  setPage(page+1);
   let url=`https://newsapi.org/v2/top-headlines?country=${props.country}&apiKey=${props.api}&page=${page}&pageSize=${props.pageSize}&category=${props.category}`;  
   fetch(url)
   .then(response => response.json())
@@ -44,6 +43,7 @@ export default function News(props) {
     props.setProgress(100);
   })
   .catch(err=>console.log(err));
+  setPage(page+1);
 
   };
 
@@ -55,7 +55,7 @@ export default function News(props) {
     <div className="container" style={{marginTop:80+'px'}}>
         <h1 className={'text-center text-'+props.mode2} id='header'>TJ News- Top {props.category[0].toUpperCase()+props.category.slice(1)} Headlines</h1>
         
-        {loading && <Spinner/>}
+        {loading && <Spinner mode1={props.mode1} mode2={props.mode2}/>}
 
         <InfiniteScroll
           dataLength={articles.length}
