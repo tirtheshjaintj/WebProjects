@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogDog🐕 SignIn Form</title>
+    <%- include('./partials/head'); %>
+    <style>
+
+        body,form{
+            background:#222;
+        }
+        
+        </style>
+</head>
+<body>
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">BlogDog🐕 SignIn</a>
+          </div>
+        </div>
+      </nav>
+      <div class="container p-5 text-light">
+        <h1 class="text-center">BlogDog🐕 SignIn</h1>
+        <form action="/user/signin" method="post">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Enter Your Email</label>
+                <input type="email" name="email" placeholder="Enter Your Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Enter Your Password</label>
+                <input type="password" name="password" placeholder="Enter Your Password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+              </div>
+            <button type="submit" class="btn btn-primary">SignIn</button>
+          </form>
+          <br>
+          <a href="/user/signup" class="btn btn-dark">SignUp Now</a>
+          <% if(locals.error){ %>
+            <br><br>
+            <div class="alert alert-danger" role="alert">
+            <%=error %>
+            </div>
+        <% } %>
+<script>
+    if ( window.history.replaceState ) {
+      window.history.replaceState( null, null, window.location.href );
+    }
+    </script>
+    <%- include('./partials/scripts'); %>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+       <%- include('./partials/head'); %>
+       <style>
+        body{
+            background:#222;
+        }
+       </style>
+</head>
+<body>
+    <%- include('./partials/navbar'); %>
+    <div class="container p-5 text-light">
+    <h3>Lets Write A New Blog</h3>
+<form action="/blog" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="Input1" class="form-label">Blog Title</label>
+        <input type="title" name="title" class="form-control" id="Input1" placeholder="Enter Blog Title" required>
+      </div>
+      <div class="mb-3">
+        <label for="Textarea1" class="form-label">Blog Body</label>
+        <textarea class="form-control" name="body" id="Textarea1" rows="10" placeholder="Enter Your Blog Body" required></textarea>
+      </div>
+      <div class="mb-3">
+          <input type="file" name="coverfile" name="coverimage" id="coverimage" accept="image/*" style="display:none;">
+          <label for="coverimage">
+          <img id="blah" src="https://viget.imgix.net/upload-file-input.png?auto=format%2Ccompress&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&ixlib=php-3.3.1&q=90&s=4c824b62eb21445ef495511f1936bcf2" style="width:300px;height:200px;"/>
+        </label>
+      </div>
+      <input type="submit" class="btn btn-primary" value="POST">
+</form>
+
+
+</div>
+    <%- include('./partials/scripts'); %>
+    <script>
+        let cover=document.getElementById("coverimage");
+   cover.onchange = evt => {
+  const [file] = cover.files
+  if (file) {
+    blah.src = URL.createObjectURL(file)
+  }
+}
+    </script>
+</body>
+</html>

@@ -7,7 +7,9 @@
 }
 :root {
   --radius: 25px;
-
+}
+body{
+  background-color:black;
 }
 
 label{
@@ -38,6 +40,7 @@ label{
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   text-align:left;
   display: none;
+  margin-top: 40px;
 }
 
 
@@ -54,6 +57,7 @@ body{
     background-repeat: round;
     background-size: contain;
      background-attachment: fixed;
+     background-color: black;
     
 }
 
@@ -88,7 +92,7 @@ img{
   padding:10px;
   background:white;
   border-radius: 20px;
-      border:1px black solid;
+border:1px black solid;
 box-shadow: 0px 0px 20px goldenrod;
 }
 

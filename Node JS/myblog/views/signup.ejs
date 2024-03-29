@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlogDog🐕 SignUp</title>
+  <%- include('./partials/head'); %>
+    <style>
+      body,
+      form {
+        background: #222;
+      }
+    </style>
+</head>
+
+<body>
+  <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">BlogDog🐕 SignUp</a>
+    </div>
+    </div>
+  </nav>
+  <div class="container p-5 text-light">
+    <h1 class="text-center">BlogDog🐕 SignUp</h1>
+    <form action="/user/signup" method="post" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Enter Your Name</label>
+        <input type="text" name="name" placeholder="Enter Your Name" class="form-control" id="exampleInputEmail1"
+          aria-describedby="emailHelp" required>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Enter Your Email</label>
+        <input type="email" name="email" placeholder="Enter Your Email" class="form-control" id="exampleInputEmail1"
+          aria-describedby="emailHelp" required>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Enter Your Password</label>
+        <input type="password" name="password" placeholder="Enter Your Password" class="form-control"
+          id="exampleInputEmail1" aria-describedby="emailHelp" required>
+      </div>
+      <div class="mb-3">
+        <input type="file" name="profile_image" name="coverimage" id="coverimage" accept="image/*" style="display:none;">
+        <label for="coverimage">
+          <img id="blah"
+            src="https://viget.imgix.net/upload-file-input.png?auto=format%2Ccompress&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&ixlib=php-3.3.1&q=90&s=4c824b62eb21445ef495511f1936bcf2"
+            style="width:300px;height:200px;" />
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary">SignUp</button>
+    </form>
+    <br>
+    <a href="/user/signin" class="btn btn-dark">SignIn Now</a>
+    <% if(locals.error){ %>
+      <br><br>
+      <div class="alert alert-danger" role="alert">
+        <%=error %>
+      </div>
+      <% } %>
+        <script>
+          let cover = document.getElementById("coverimage");
+          cover.onchange = evt => {
+            const [file] = cover.files
+            if (file) {
+              blah.src = URL.createObjectURL(file)
+            }
+          }
+          if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+          }
+        </script>
+        <%- include('./partials/scripts'); %>
+</body>
+
+</html>

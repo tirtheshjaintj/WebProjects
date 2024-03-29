@@ -1,6 +1,6 @@
 const doc=document;
 function update(){
-    let title=document.getElementById("title").value.trim().replaceAll("<","").replaceAll(">","");
+let title=document.getElementById("title").value.trim().replaceAll("<","").replaceAll(">","");
 let desc=document.getElementById("description").value.trim().replaceAll("<","").replaceAll(">","");
 if(title.replaceAll(" ","")!="" && desc.replaceAll(" ","")!=""){
 if(localStorage.getItem("tasks")==null){
@@ -13,19 +13,13 @@ else{
     tasksArray=JSON.parse(tasksArrayStr);
     tasksArray.push([title,desc]);
     localStorage.setItem("tasks",JSON.stringify(tasksArray));
-
 }
-
 console.log(tasksArray);
-
 }
 doc.getElementById("title").value="";
 doc.getElementById("description").value="";
-
 show();
-
 }
-
 function show(){
 if(localStorage.getItem("tasks")==null){
         tasksArray=[];
@@ -38,7 +32,6 @@ else{
 }
     let tablebody=doc.getElementById("tablebody");
 let str="";
-
 tasksArray.forEach((element,index) => {
     str+=`<tr>
         <td scope="col" class="no">${index+1}</td>
@@ -50,12 +43,9 @@ tasksArray.forEach((element,index) => {
 });
 tablebody.innerHTML=str;
 }
-
-
 function save(){
     update();
 }
-
 function deleted(i){
     if(confirm("Do you want to delete?")){
     let tasksArrayStr=localStorage.getItem("tasks");
@@ -68,7 +58,6 @@ function deleted(i){
 
     }
 }
-
 function clearall(){
     if(confirm("Do you want to delete?")){
     localStorage.clear();
@@ -79,6 +68,5 @@ function clearall(){
 
     }
 }
-
 update();
 

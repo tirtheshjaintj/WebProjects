@@ -44,7 +44,7 @@
           <input type="button" onclick="display.value+='00'" value="00" />
           <input type="button" onclick="display.value+='0'" value="0" />
           <input type="button"
-            onclick="display.value=(display.value.replaceAll(` `)==='')?display.value=0:eval(display.value)"
+            onclick="display.value=(display.value.replaceAll(` `)==='')?0:eval(display.value.replace(/^0+/, ''))"
             class="equal oper" value="=" />
         </div>
       </form>

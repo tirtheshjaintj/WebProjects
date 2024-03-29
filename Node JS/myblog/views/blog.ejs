@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <%- include('./partials/head'); %>
+        <style>
+            body {
+                background: #222;
+            }
+
+            pre {
+                font-size: 20px;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+            }
+        </style>
+</head>
+
+<body>
+    <%- include('./partials/navbar'); %>
+        <div class="container p-5">
+            <% if(locals.blog){ %>
+                <h1 class="text-light p-2">
+                    <%= blog.title %>
+                </h1>
+                <h4 class="text-light p-2">Posted By <img src="<%= blog.createdBy.profile_image %>" style="width:40px;"
+                        alt="">
+                    <%= blog.createdBy.name %>
+                </h4>
+                <div class="text-center">
+                    <img src="../<%= blog.coverImageURL %>" style="width:100%;" class="p-2" alt="...">
+                </div>
+                <pre class="text-light p-2"><%= blog.body %></pre>
+                <% } %>
+                    <h5 class="card-title">
+                        <%= blog.createdBy.name %>
+                    </h5>
+                    <h5 class="card-title">
+                        <%= blog.createdBy.name %>
+                    </h5>
+        </div>
+
+        <% if(locals.user){%>
+        <div class="container">
+            <form action="/blog/comment/<%= blog._id %>" method="post">
+                <div class="mb-3">
+                    <label for="Textarea1" class="form-label">Comment</label>
+                    <input type="text" class="form-control" name="content" id="Textarea1" rows="2"
+                        placeholder="Enter Your Blog Body" required></input>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Comment</button>
+            </form>
+        </div>
+        <% } %>
+
+        <%if(locals.comment){%>
+        <div class="container mb-5 py-5 text-light border-light">
+            <h2 class="text-light">Comments (<%= comment.length %>)</h2>
+            <% comment.forEach((comment)=>{%>
+                <h4><%= comment.content %></h4>
+                <h6 class="text-light p-2"><img src="../<%= comment.createdBy.profile_image %>" style="width:40px;"> <%= comment.createdBy.name %></h6>
+                <% }); %>
+        </div>
+        <%}%>
+
+        <%- include('./partials/scripts'); %>
+</body>
+
+</html>

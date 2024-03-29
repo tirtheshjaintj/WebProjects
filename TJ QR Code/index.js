@@ -1,13 +1,13 @@
 let qrtext = document.getElementById("qrtext");
 let qrcode = document.getElementById("qrcode");
 let share = document.getElementById("share");
-qrtext.oninput = () => {
+qrtext.onchange = () => {
     let text = qrtext.value;
     if (text.replaceAll(' ', '').length > 0) {
         let src = "https://api.qrserver.com/v1/create-qr-code/?data=" + text.replaceAll(" ", "%20");
         fetch(src)
             .then((request) => {
-                return request.blob()
+                return request.blob();
             })
             .then((data) => {
                 const imageUrl = URL.createObjectURL(data);

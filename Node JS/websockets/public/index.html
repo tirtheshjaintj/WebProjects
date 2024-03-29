@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This Is A Chat App</title>
+</head>
+<body>
+<h1>Chatting Application</h1>
+
+<textarea name="message"  rows="4" cols="50" id="message"></textarea>
+<br>
+<br>
+<button id="send">Send Message</button>
+<br>
+<br>
+<div id="messages">
+
+</div>
+<!-- <button id="socket">Connect To Server</button> -->
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+const socket=io();
+
+socket.on("message",(message)=>{
+console.log(message);
+const p=document.createElement("p");
+p.innerHTML=message;
+document.getElementById("messages").append(p);
+}
+)
+// document.getElementById("socket").addEventListener("click",()=>{
+//     // const socket=io();
+// });
+document.getElementById("send").addEventListener("click",()=>{
+    // const socket=io();
+    const message=document.getElementById("message").value;
+    console.log(message);
+    socket.emit("userMessage",message);
+});
+
+</script>
+</body>
+</html>

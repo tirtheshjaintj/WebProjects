@@ -64,9 +64,9 @@ body,form{
       </div>      
       <div class="container">
       <table class="table table-dark table-bordered table-hover table-striped">
-        <tr class="table-dark">  <td class="table-dark">ShortId</td> <td class="table-dark">Clicks</td> </tr>
+        <tr class="table-dark">  <td class="table-dark">ShortId</td> <td class="table-dark">Redirect URL</td> <td class="table-dark">Clicks</td> </tr>
                <% urls.forEach(url => { %>
-<tr class="table-dark"> <td class="table-dark"> <a class="text-light" href="url/<%= url.shortId %>" target="_blank"> http://localhost/url/<%=  url.shortId   %></a></td> <td><%=  url.visitHistory.length   %></td> </tr>
+<tr class="table-dark"> <td class="table-dark"> <a class="text-light" href="url/<%= url.shortId %>" target="_blank"> http://localhost/url/<%=  url.shortId   %></a></td> <td><%=  url.redirectURL  %></td> <td><%=  url.visitHistory.length   %></td> </tr>
         <% }); %>
     </table> 
 </div>

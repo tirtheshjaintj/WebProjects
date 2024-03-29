@@ -12,10 +12,12 @@ async function generateShortURL(req,res){
         {
             shortId:shortId,
             redirectURL:redirectURL,
-            visitHistory:[]
+            visitHistory:[],
+            createdBy:req.user._id
         }
     );
-    const allUrls=await URL.find({});
+    if(!req.user) return res.redirect('/login');
+    const allUrls=await URL.find({createdBy:req.user._id}).sort( { createdAt: -1 } );
     return res.render('home',{id:shortId,urls:allUrls});
 }
 
@@ -36,7 +38,7 @@ const entry=await URL.findOneAndUpdate(
 
 async function analyticURL(req,res){
     const shortId=req.params.shortId;
-    const result=await URL.findOne({shortId});
+    const result=await URL.findOne({shortId:shortId});
   return  res.json({totalClicks:result.visitHistory.length,analytics:result.visitHistory});
 }
 

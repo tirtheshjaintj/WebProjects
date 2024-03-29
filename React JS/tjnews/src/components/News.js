@@ -8,9 +8,9 @@ import LoadingBar from 'react-top-loading-bar'
 export default function News(props) {
   const [articles, setArticles] = useState([]);
   const [page,setPage]=useState(1);
-  const [total,setTotal]=useState(  0);
+  const [total,setTotal]=useState(0);
   const [loading,setLoading]=useState(true);
-  
+
   useEffect(() => {
     props.setProgress(10);
     document.title=document.getElementById("header").innerHTML;
@@ -29,7 +29,6 @@ export default function News(props) {
   },[]);
 
 
-
   async function fetchMoreData () {
     props.setProgress(10);
   setLoading(true);
@@ -44,19 +43,12 @@ export default function News(props) {
   })
   .catch(err=>console.log(err));
   setPage(page+1);
-
   };
-
-
-
-
   
   return (
     <div className="container" style={{marginTop:80+'px'}}>
         <h1 className={'text-center text-'+props.mode2} id='header'>TJ News- Top {props.category[0].toUpperCase()+props.category.slice(1)} Headlines</h1>
-        
         {loading && <Spinner mode1={props.mode1} mode2={props.mode2}/>}
-
         <InfiniteScroll
           dataLength={articles.length}
           next={fetchMoreData}

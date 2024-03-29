@@ -2,12 +2,11 @@ import './App.css';
 import Navbar from './components/Navbar';
 import News from './components/News';
 import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import LoadingBar from 'react-top-loading-bar'
 
 function App() {
-
-  const [progress,setProgress]=useState(0);
+const [progress,setProgress]=useState(0);
 const[mode1,setMode1]=useState('light');
 const[mode2,setMode2]=useState('dark');
 
@@ -26,8 +25,7 @@ document.body.style.backgroundColor="white";
 
   return (
     <Router>
-           <LoadingBar color='#f11946' height={4} progress={progress}/>
-
+    <LoadingBar color='#f11946' height={4} progress={progress}/>
     <Navbar title="TJ News" mode1={mode1} mode2={mode2} switchOver={switchOver}/>
     <Routes>
       <Route  exact path="*"  element={<News key="1" api={process.env.REACT_APP_NEWS_API_1} pageSize={5} country="in" category="general" setProgress={setProgress}  mode1={mode1} mode2={mode2} />}/>
