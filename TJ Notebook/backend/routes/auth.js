@@ -40,7 +40,7 @@ router.post('/createuser', [
     }
     const authtoken = jwt.sign(data, JWT_SECRET);
     // res.json(user)
-    res.json({ authtoken })
+    res.json({ authtoken });
 
   } catch (error) {
     console.error(error.message);
@@ -81,7 +81,7 @@ router.post('/login', [
     }
     const authtoken = jwt.sign(data, JWT_SECRET);
     success = true;
-    res.json({ success, authtoken })
+    res.cookie("token",authtoken).json({ success, authtoken })
 
   } catch (error) {
     console.error(error.message);

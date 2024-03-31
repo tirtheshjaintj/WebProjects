@@ -1,11 +1,20 @@
 import PropTypes from 'prop-types'
-import { useEffect } from 'react';
-import { Link, useLocation  } from "react-router-dom";
+import { Link, useLocation} from "react-router-dom";
+import Cookies from 'universal-cookie';
+import {useNavigate} from 'react-router-dom';
 export default function Navbar(props) {
 const location = useLocation();
-// useEffect(()=>{
-//   console.log(location.pathname)
-// },[location]);
+const cookies = new Cookies();
+const navigate = useNavigate();
+if(cookies.get('auth-token')){
+  console.log(cookies.get('auth-token'));
+}
+
+const logOut=()=>{
+  console.log("Logout");
+  cookies.remove('auth-token', { path: '/', 'sameSite': 'none', 'secure': 'true' });
+  navigate("/login");
+}
   return (
     <>
           <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
@@ -23,6 +32,11 @@ const location = useLocation();
                 <Link className={`nav-link ${location.pathname==="/about"?"active":""}`} aria-current="page" to="/about">About</Link>
               </li>
             </ul>
+            <form className="d-flex">
+    {!(cookies.get('auth-token'))?<Link to="/login" className="btn btn-primary mx-1">Login</Link>:``}
+    {!(cookies.get('auth-token'))?<Link to="/signup" className="btn btn-primary mx-1">SignUp</Link>:``}
+    {(cookies.get('auth-token'))?<a onClick={logOut} className="btn btn-primary mx-1">Logout</a>:``}
+      </form>
           </div>
         </div>
       </nav>
