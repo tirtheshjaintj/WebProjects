@@ -60,14 +60,17 @@ function showoutput() {
     localStorage.setItem("htmlcode", editor1.getValue());
     localStorage.setItem("csscode", editor2.getValue());
     localStorage.setItem("jscode", editor3.getValue());
+    console.clear();
     output.innerHTML = `${localStorage.getItem("htmlcode")}`;
-    output.innerHTML += `<style> ${localStorage.getItem("csscode")}</style>`;
-    eval(localStorage.getItem("jscode"));
+    output.innerHTML += `<style> ${localStorage.getItem("csscode").replaceAll("body","")}</style>`;
+    eval(localStorage.getItem("jscode").replaceAll("body",""));
     var i = 0;
     if (i == 0) {
-        var x = document.getElementById("snackbar");
-        x.className = "show";
-        setTimeout(function () { x.className = x.className.replace("show", ""); i = 1; }, 3000);
+setTimeout(()=>{
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function () { x.className = x.className.replace("show", ""); i = 1; }, 3000);
+},2000);
     }
     else {
         i = 0;
@@ -84,9 +87,12 @@ const saver = () => {
     }
 }
 
-window.onkeydown = () => {
+window.onkeydown = (event) => {
     showoutput();
     console.clear();
+    if (event.keyCode == 83 && (navigator.platform.match("Mac") ? event.metaKey : event.ctrlKey)) {
+        event.preventDefault();
+      }
 };
 
 window.onkeyup = () => {

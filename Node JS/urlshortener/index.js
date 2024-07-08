@@ -8,7 +8,6 @@ const path=require('path');
 const {restrictLoggedIn:restrict,checkAuth:check}=require("./middleware/auth");
 const cookieParser=require("cookie-parser");
 
-
 //Templating Engine
 app.set('view engine','ejs');
 app.set('views',path.resolve("./views"));

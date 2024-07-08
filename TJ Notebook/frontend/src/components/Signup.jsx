@@ -1,18 +1,44 @@
 import React,{useState} from 'react';
 import Cookies from 'universal-cookie';
-import {useNavigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+import { useContext } from 'react';
+import noteContext from '../context/notes/NoteContext';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Signup() {
+  const notify = (msg,color) => toast(msg, {
+    duration: 2000,
+    position: 'bottom-right',
+    // Styling
+    style: {borderTop:`4px solid ${color}`},
+    className: '',
+  
+    // Custom Icon
+    icon: '🪪',
+
+    // Change colors of success/error/loading icon
+    iconTheme: {
+      primary: '#000',
+      secondary: '#fff'
+    },
+    // Aria
+    ariaProps: {
+      role: 'status',
+      'aria-live': 'polite'
+    }
+  });
     const [cred,setCred]=useState({email:"",password:"",name:""});
     const navigate = useNavigate();
     const cookies = new Cookies();
-    const host="http://localhost:8000";
+    const {setProgress}=useContext(noteContext);
+    const host="https://tj-notebook.vercel.app";
     if(cookies.get('auth-token')){
         navigate("/");
-        console.log(cookies.get('auth-token'));
+        // console.log(cookies.get('auth-token'));
     }
     const handleSubmit=async (e)=>{
          e.preventDefault();
+         setProgress(90);
          const response=await fetch(`${host}/api/auth/createuser`,{
             method:'POST',
             headers:{
@@ -20,11 +46,19 @@ export default function Signup() {
             },
             body:JSON.stringify(cred)
           });
+          setProgress(100);
           const data=await response.json();
-          console.log(data);
+          // console.log(data);
+          if(data.error){
+            notify(data.error,"red");
+            }
+          else{
+              notify("Logged In Successfully","green");
+          }
+          document.getElementById("error").innerHTML=data.error+" Error";
           if(data.authtoken){
             cookies.set('auth-token',data.authtoken, { path: '/' });
-            console.log(cookies.get('auth-token')); // Pacman
+            // console.log(cookies.get('auth-token')); // Pacman
             navigate("/");
           }
     }
@@ -33,6 +67,7 @@ export default function Signup() {
       }
   return (
     <div className="container my-5">
+            <h1>Signup To TJ Notebook</h1>
         <form onSubmit={handleSubmit}>
         <div className="mb-3">
     <label htmlFor="name" className="form-label">Your Name</label>
@@ -45,10 +80,14 @@ export default function Signup() {
   </div>
   <div className="mb-3">
     <label htmlFor="password" className="form-label">Password</label>
-    <input type="password" onChange={onChange} value={cred.password}  className="form-control" name="password" id="password" required/>
+    <input type="password" onChange={onChange} minLength={6} value={cred.password}  className="form-control" name="password" id="password" required/>
   </div>
   <button type="submit" className="btn btn-primary">Submit</button>
+  <div id="error"></div>
 </form>
+<br /><br />
+<Toaster />
+<Link to="/login">Do you wanna login?</Link>
     </div>
   )
 }

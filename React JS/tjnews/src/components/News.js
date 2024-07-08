@@ -4,7 +4,6 @@ import Spinner from './Spinner';
 import PropTypes from 'prop-types'
 import InfiniteScroll from "react-infinite-scroll-component";
 import LoadingBar from 'react-top-loading-bar'
-
 export default function News(props) {
   const [articles, setArticles] = useState([]);
   const [page,setPage]=useState(1);

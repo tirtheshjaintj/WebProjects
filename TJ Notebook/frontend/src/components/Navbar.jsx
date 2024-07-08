@@ -2,21 +2,28 @@ import PropTypes from 'prop-types'
 import { Link, useLocation} from "react-router-dom";
 import Cookies from 'universal-cookie';
 import {useNavigate} from 'react-router-dom';
+import { useContext } from 'react';
+import noteContext from '../context/notes/NoteContext';
+import LoadingBar from 'react-top-loading-bar';
+
 export default function Navbar(props) {
 const location = useLocation();
 const cookies = new Cookies();
 const navigate = useNavigate();
-if(cookies.get('auth-token')){
-  console.log(cookies.get('auth-token'));
-}
+const {setNotes,progress}=useContext(noteContext);
+// if(cookies.get('auth-token')){
+//   console.log(cookies.get('auth-token'));
+// }
 
 const logOut=()=>{
-  console.log("Logout");
+  // console.log("Logout");
   cookies.remove('auth-token', { path: '/', 'sameSite': 'none', 'secure': 'true' });
+  setNotes([]);
   navigate("/login");
 }
   return (
     <>
+    <LoadingBar color='#f11946' height={4} progress={progress}/>
           <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">TJ Notebook</Link>
@@ -27,9 +34,6 @@ const logOut=()=>{
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link className={`nav-link ${location.pathname==="/"?"active":""}`} aria-current="page" to="/">Home</Link>
-              </li>
-              <li className="nav-item">
-                <Link className={`nav-link ${location.pathname==="/about"?"active":""}`} aria-current="page" to="/about">About</Link>
               </li>
             </ul>
             <form className="d-flex">
